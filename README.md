@@ -39,7 +39,40 @@ screenshots from the app:
 
 1. Run `npm start` in a separate terminal window to build the TypeScript, watch for changes and launch the web server
 
-1. Go to http://localhost:3000 in your browser
+（这个会启动一个 RESTful 服务器。）
+
+比如关于 customers，有：
+
+```javascript
+app.get('/api/customers', (req, res) => { ... });
+app.get('/api/customers/:id', (req, res) => { ... });
+app.post('/api/customers', (req, res) => { ... });
+app.put('/api/customers/:id', (req, res) => { ... });
+app.delete('/api/customers/:id', function(req, res) { ... });
+```
+
+除了 customers，还有 orders、states，等等：
+
+```javascript
+app.get('/api/orders', function(req, res) {
+app.get('/api/states', (req, res) => {
+```
+
+有时候你会发现，nodejs 工具真多！：
+
+```javascript
+// redirect all others to the index (HTML5 history)
+app.all('/*', function(req, res) {
+
+// Open browser
+var opn = require('opn');
+
+opn('http://localhost:3000').then(() => {
+    console.log('Browser closed.');
+});
+```
+
+1. Go to http://localhost:3000 in your browser（其实启动 server 后浏览器会自动打开这个站点。）
 
 Looking for expert onsite Angular 2 training? We've trained the biggest (and smallest :-)) companies around the world for over 15 years. 
 For more information visit http://codewithdan.com. 
